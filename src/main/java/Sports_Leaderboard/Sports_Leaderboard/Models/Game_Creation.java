@@ -20,5 +20,6 @@ public class Game_Creation {
     String name;
     List players;
     Integer score;
+    Integer price;
 
 }
