@@ -21,13 +21,14 @@ public class LeaderBoardController<ResponseEntity> {
     }
 
     @GetMapping("/report")
-    public ResponseEntity<Game_Creation> generateReport() {
+    public ResponseEntity<ReportDTO> generateReport() {
         // Generate the report based on the leaderboard data
         // Replace this with your actual report generation logic
-        String report = "Sample report: \n";
+        StringBuilder report = new StringBuilder("Sample report: \n");
         for (Game_Creation game : games) {
-            report += "Game: " + game.getName() + ", Score: " + game.getScore() + "\n";
+            report.append("Game: ").append(game.getName()).append(", Score: ").append(game.getScore()).append("\n");
         }
-        return ResponseEntity.ok(report);
+        ReportDTO reportDTO = new ReportDTO(report.toString());
+        return ResponseEntity.ok(reportDTO);
     }
 }
