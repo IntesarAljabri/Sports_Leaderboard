@@ -17,7 +17,7 @@ public class Game_MangementController {
 
     @PostMapping
     public ResponseEntity<String> createGame(@RequestBody Game_Creation game) {
-        Game_Creation.add(Game);
+        Game_Creation.add();
         return ResponseEntity.status(HttpStatus.CREATED).body("Game created successfully");
     }
 
