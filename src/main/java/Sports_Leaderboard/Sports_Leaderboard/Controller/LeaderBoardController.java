@@ -21,7 +21,7 @@ public class LeaderBoardController<ResponseEntity> {
     }
 
     @GetMapping("/report")
-    public ResponseEntity<String> generateReport() {
+    public ResponseEntity<Game_Creation> generateReport() {
         // Generate the report based on the leaderboard data
         // Replace this with your actual report generation logic
         String report = "Sample report: \n";
