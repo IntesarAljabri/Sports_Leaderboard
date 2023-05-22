@@ -1,4 +1,7 @@
 package Sports_Leaderboard.Sports_Leaderboard.Repositories;
 
-public interface TeamRepository extends JpaRepository <Team, Integer>{
+import Sports_Leaderboard.Sports_Leaderboard.Models.Team;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TeamRepository extends JpaRepository<Team, Integer> {
 }

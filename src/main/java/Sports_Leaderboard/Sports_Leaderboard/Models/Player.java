@@ -1,15 +1,16 @@
 package Sports_Leaderboard.Sports_Leaderboard.Models;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Setter
 @Getter
 @Entity
+@Data
+@Table(name = "Player")
 public class Player {
 
     @Id
@@ -17,5 +18,6 @@ public class Player {
     Integer id;
     String name;
     String SportType;
+    String Location;
     String email;
 }
