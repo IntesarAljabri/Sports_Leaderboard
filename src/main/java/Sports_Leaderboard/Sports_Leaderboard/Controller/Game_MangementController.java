@@ -12,8 +12,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class Game_MangementController {
-
-    private List<Game_Creation> games = new ArrayList<>(); // In-memory storage for games
+private List<Game_Creation> games = new ArrayList<>(); // In-memory storage for games
 
     @PostMapping
     public ResponseEntity<String> createGame(@RequestBody Game_Creation game) {

@@ -28,6 +28,6 @@ public class Game_MangementService {
     }
 
     public List<Game_Mangement> getAllGames() {
-        return gameRepository.findAll();
+        return game_MangementRepository.findAll();
     }
 }
