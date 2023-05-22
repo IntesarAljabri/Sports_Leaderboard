@@ -17,4 +17,6 @@ public class Game_Mangement {
     String GameName;
     String GameInformation;
     String Price;
+    String creatorId;
+    Integer score;
 }
