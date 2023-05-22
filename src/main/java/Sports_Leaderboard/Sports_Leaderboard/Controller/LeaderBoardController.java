@@ -31,4 +31,19 @@ public class LeaderBoardController<ResponseEntity> {
         ReportDTO reportDTO = new ReportDTO(report.toString());
         return ResponseEntity.ok(reportDTO);
     }
+    public class ReportDTO {
+        private String report;
+
+        public ReportDTO(String report) {
+            this.report = report;
+        }
+
+        public String getReport() {
+            return report;
+        }
+
+        public void setReport(String report) {
+            this.report = report;
+        }
+    }
 }
