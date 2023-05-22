@@ -1,11 +1,6 @@
 package Sports_Leaderboard.Sports_Leaderboard.Controller;
 import Sports_Leaderboard.Sports_Leaderboard.Models.Player;
-import Sports_Leaderboard.Sports_Leaderboard.Models.Team;
 import Sports_Leaderboard.Sports_Leaderboard.Repositories.PlayerRepository;
-import Sports_Leaderboard.Sports_Leaderboard.Repositories.TeamRepository;
-import Sports_Leaderboard.Sports_Leaderboard.Service.PlayerService;
-import antlr.collections.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +8,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api")
 public class PlayerController {
+    private PlayerRepository playerRepository;
+
+    public void RegistrationController(PlayerRepository playerRepository) {
+        this.playerRepository = playerRepository;
+    }
+
     @PostMapping("/players")
     public ResponseEntity<Player> registerPlayer(@RequestBody Player player) {
-        Player savedPlayer = PlayerRepository.save(player);
+        Player savedPlayer = playerRepository.save(player);
         return new ResponseEntity<>(savedPlayer, HttpStatus.CREATED);
     }
 }
