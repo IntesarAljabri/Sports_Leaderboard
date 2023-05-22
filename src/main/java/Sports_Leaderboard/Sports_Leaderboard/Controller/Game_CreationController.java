@@ -15,9 +15,9 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping("/api/games")
 public class Game_CreationController {
-    private List games = (List<Game_Creation>) new ArrayList<>(); // In-memory storage for games
+    List games = (List) new ArrayList<>(); // In-memory storage for games
 
-    @PostMapping
+    @PostMapping("/games")
     public ResponseEntity<String> createGame(@RequestBody Game_Creation game) {
         games.add(game);
 
