@@ -24,7 +24,7 @@ public class Game_MangementService {
     }
 
     public List<Game_Mangement> getGamesByCreator(String creatorId) {
-        return game_MangementRepository.findByCreatorId(creatorId);
+        return game_MangementRepository.findGameById(id);
     }
 
     public List<Game_Mangement> getAllGames() {
