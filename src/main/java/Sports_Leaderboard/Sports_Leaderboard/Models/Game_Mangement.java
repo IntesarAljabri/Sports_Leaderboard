@@ -14,8 +14,6 @@ public class Game_Mangement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
-
-
     String GameName;
     String GameInformation;
     String Price;
