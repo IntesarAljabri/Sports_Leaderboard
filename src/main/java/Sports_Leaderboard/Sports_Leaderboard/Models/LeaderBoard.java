@@ -13,4 +13,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "LeaderBoard")
 public class LeaderBoard {
+    private String playerName;
+    private int score;
+
+    public void LeaderboardEntry(String playerName, int score) {
+        this.playerName = playerName;
+        this.score = score;
+    }
+
 }
