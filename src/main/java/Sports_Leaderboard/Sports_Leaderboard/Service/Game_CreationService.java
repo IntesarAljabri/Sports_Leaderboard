@@ -9,9 +9,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class Game_CreationService {
     @Autowired
-    Game_CreationRepository game_CreationRepository;
+     Game_CreationRepository game_CreationRepository;
 
-    public List<Game_Creation> getAllGame_Creation(){
-        return game_CreationRepository.findAll();
+    public void Game_Creation(Game_CreationRepository game_CreationRepository) {
+        this.game_CreationRepository = game_CreationRepository;
     }
+//    public List<Game_Creation> getAllGame_Creation() {
+//        return game_CreationRepository.findAll();
+//    }
 }
