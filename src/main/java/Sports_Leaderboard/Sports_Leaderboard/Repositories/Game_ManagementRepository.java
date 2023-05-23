@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Repository
-public interface Game_MangementRepository extends JpaRepository<Game_Mangement, Integer> {
+public interface Game_ManagementRepository extends JpaRepository<Game_Mangement, Integer> {
     void deleteById(SingularAttribute<AbstractPersistable, Serializable> id);
 
     List<Game_Mangement> findGameById(SingularAttribute<AbstractPersistable, Serializable> id);
