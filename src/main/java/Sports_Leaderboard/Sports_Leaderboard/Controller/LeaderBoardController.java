@@ -29,7 +29,7 @@ public class LeaderBoardController<ResponseEntity> {
             report.append("Game: ").append(game.getName()).append(", Score: ").append(game.getScore()).append("\n");
         }
         ReportDTO reportDTO = new ReportDTO(report.toString());
-        return ResponseEntity.ok(reportDTO);
+      //return ResponseEntity.ok(reportDTO);
     }
     public class ReportDTO {
         private String report;
