@@ -16,7 +16,7 @@ public class LeaderBoard {
     private String playerName;
     private int score;
 
-    public void LeaderboardEntry(String playerName, int score) {
+    public void LeaderboardEntry(String playerName, Integer score) {
         this.playerName = playerName;
         this.score = score;
     }

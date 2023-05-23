@@ -28,8 +28,7 @@ public class LeaderBoardController<ResponseEntity> {
         for (Game_Creation game : games) {
             report.append("Game: ").append(game.getName()).append(", Score: ").append(game.getScore()).append("\n");
         }
-        ReportDTO reportDTO = new ReportDTO(report.toString());
-      //return ResponseEntity.ok(reportDTO);
+        ReportDTO reportDTO = new ReportDTO(report.toString());return ResponseEntity.ok(reportDTO);
     }
     public class ReportDTO {
         private String report;
