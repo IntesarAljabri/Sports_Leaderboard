@@ -4,8 +4,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Setter
@@ -13,6 +12,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "LeaderBoard")
 public class LeaderBoard extends BaseEntity{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Integer id;
     private String playerName;
     private int score;
     String teamName;

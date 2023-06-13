@@ -8,15 +8,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TeamService {
+    @Autowired
     TeamRepository teamRepository;
 
-    @Autowired
-    public TeamService(TeamRepository teamRepository) {
-        this.teamRepository = teamRepository;
-    }
 
-//    public List<Team> getAllTeams() {
-//        return (List<Team>) teamRepository.findAll();
-//    }
 
 }

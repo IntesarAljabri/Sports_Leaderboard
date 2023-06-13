@@ -11,12 +11,4 @@ public class PlayerService {
     @Autowired
      PlayerRepository playerRepository;
 
-    @Autowired
-    public PlayerService(PlayerRepository playerRepository) {
-        this.playerRepository = playerRepository;
-    }
-//
-//    public List<Player> getAllPlayer() {
-//        return (List<Player>) playerRepository.findAll();
-//    }
 }

@@ -1,24 +1,38 @@
 package Sports_Leaderboard.Sports_Leaderboard.Service;
 
-import Sports_Leaderboard.Sports_Leaderboard.Models.Game_Creation;
+
+import Sports_Leaderboard.Sports_Leaderboard.Models.LeaderBoard;
+import Sports_Leaderboard.Sports_Leaderboard.Repositories.LeaderBoardRepository;
+import Sports_Leaderboard.Sports_Leaderboard.Request.LeaderBoardRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
+
 
 @Service
 public class LeaderBoardService {
 
-    private List<Game_Creation> games = new ArrayList<>(); // In-memory storage for games
+    @Autowired
+    LeaderBoardRepository leaderBoardRepository;
 
-    public void addGame(Game_Creation game) {
-        games.add(game);
+    public void createLeaderBoard(LeaderBoardRequest leaderBoardRequest) {
+        LeaderBoard leaderBoard = new LeaderBoard();
+        leaderBoard.setTeamName(leaderBoardRequest.getTeamName());
+        leaderBoard.setTeamWins(leaderBoardRequest.getWins());
+        leaderBoard.setTeamLosses(leaderBoardRequest.getLosses());
+        leaderBoard.setCreateDate(new Date());
+        leaderBoard.setIsActive(true);
+        leaderBoardRepository.save(leaderBoard);
     }
 
-    public List<Game_Creation> getLeaderboard() {
-        // Sort the games by score in descending order
-        games.sort(Comparator.comparingInt(Game_Creation::getScore).reversed());
-        return games;
+    public LeaderBoard getLeaderBoardById(Integer id) {
+        LeaderBoard leaderBoardById = leaderBoardRepository.getLeaderBoardById(id);
+        return leaderBoardById;
+    }
+    public List <LeaderBoard> getLeaderBoardOrderByWins(){
+        List<LeaderBoard> leaderBoardOrderByWins = leaderBoardRepository.getLeaderBoardOrderByWins();
+        return leaderBoardOrderByWins;
     }
 }
