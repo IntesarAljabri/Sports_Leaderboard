@@ -15,9 +15,8 @@ public class Player extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
+    Integer playerId;
     String name;
-    String SportType;
-    String Location;
-    String email;
+    String teamName;
+    String sport;
 }

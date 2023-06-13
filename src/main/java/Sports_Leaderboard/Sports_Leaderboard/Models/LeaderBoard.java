@@ -15,10 +15,9 @@ import javax.persistence.Table;
 public class LeaderBoard extends BaseEntity{
     private String playerName;
     private int score;
+    String teamName;
+    Integer teamWins;
+    Integer teamLosses;
 
-    public void LeaderboardEntry(String playerName, Integer score) {
-        this.playerName = playerName;
-        this.score = score;
-    }
 
 }

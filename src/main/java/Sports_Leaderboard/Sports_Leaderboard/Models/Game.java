@@ -17,9 +17,15 @@ public class Game extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
-    String name;
-    List players;
-    Integer score;
-    Integer price;
+    String description;
+    @OneToOne
+    @JoinColumn(name = "team1Id", referencedColumnName = "id")
+    Team teamOne;
+    @OneToOne
+    @JoinColumn(name = "team2Id", referencedColumnName = "id")
+    Team teamTwo;
+
+    Integer scoreOfTeamOne;
+    Integer scoreOfTeamTwo;
 
 }

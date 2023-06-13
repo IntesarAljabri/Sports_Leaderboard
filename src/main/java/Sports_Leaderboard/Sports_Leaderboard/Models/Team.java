@@ -22,7 +22,10 @@ public class Team extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
-    String name;
-    String country;
-    String DOB;
+    Integer teamId;
+    Integer wins;
+    Integer losses;
+    @OneToOne
+    @JoinColumn(name = "registerId", referencedColumnName = "id") // FK
+    Registration registration;
 }
