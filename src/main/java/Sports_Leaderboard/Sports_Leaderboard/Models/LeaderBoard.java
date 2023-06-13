@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Getter
 @Entity
 @Table(name = "LeaderBoard")
-public class LeaderBoard {
+public class LeaderBoard extends BaseEntity{
     private String playerName;
     private int score;
 

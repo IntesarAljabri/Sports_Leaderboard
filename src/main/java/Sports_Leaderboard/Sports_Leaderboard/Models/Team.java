@@ -17,7 +17,7 @@ import javax.persistence.Entity;
 @Setter
 @Entity
 @Table(name = "Team")
-public class Team {
+public class Team extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
