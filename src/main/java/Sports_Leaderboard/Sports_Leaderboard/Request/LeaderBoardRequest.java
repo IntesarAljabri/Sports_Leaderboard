@@ -14,28 +14,28 @@ public class LeaderBoardRequest {
 
     Integer Id;
     String teamName;
-    Integer wins;
+    Integer winners;
     Integer losses;
 
-    public static LeaderBoard convertLeaderBoardToRequest(LeaderBoardRequest request) {
+    public LeaderBoard convertToLeaderBoard() {
+        Date nowDate = new Date();
         LeaderBoard leaderBoard = new LeaderBoard();
-        leaderBoard.setTeamName(request.getTeamName());
-        leaderBoard.setTeamWins(request.getWins());
-        leaderBoard.setTeamLosses(request.getLosses());
-        leaderBoard.setCreateDate(new Date());
+        leaderBoard.setId(this.getId());
+        leaderBoard.setTeamName(this.getTeamName());
+        leaderBoard.setTeamWins(this.getWinners());
+        leaderBoard.setTeamLosses(this.getLosses());
+        leaderBoard.setCreateDate(nowDate);
         leaderBoard.setIsActive(true);
         return leaderBoard;
-
     }
 
-    public static List<LeaderBoard> convertListToLeaderBoardRequest(List<LeaderBoardRequest> LeaderBoardRequestList) {
-        List<LeaderBoard> LeaderBoardList = new ArrayList<>();
-        if (!LeaderBoardRequestList.isEmpty()) {
-            for (LeaderBoardRequest leaderBoardRequest : LeaderBoardRequestList) {
-                LeaderBoardList.add(convertLeaderBoardToRequest(leaderBoardRequest));
+    public static List<LeaderBoard> convert(List<LeaderBoardRequest> requestList) {
+        List<LeaderBoard> leaderBoards = new ArrayList<>();
+        if (!requestList.isEmpty()) {
+            for (LeaderBoardRequest leaderBoardRequest : requestList) {
+                leaderBoards.add((LeaderBoard) convert((List<LeaderBoardRequest>) leaderBoardRequest));
             }
         }
-        return LeaderBoardList;
-
+        return leaderBoards;
     }
 }

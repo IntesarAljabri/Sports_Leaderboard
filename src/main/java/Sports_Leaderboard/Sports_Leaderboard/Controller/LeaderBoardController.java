@@ -6,8 +6,6 @@ import Sports_Leaderboard.Sports_Leaderboard.Service.LeaderBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -21,14 +19,26 @@ public class LeaderBoardController<ResponseEntity> {
     public void createLeaderBoard(@RequestParam LeaderBoardRequest leaderBoardRequest) {
         leaderBoardService.createLeaderBoard(leaderBoardRequest);
     }
+
     @RequestMapping(value = "retrieveCurrentStandings", method = RequestMethod.POST)
-    public List<LeaderBoard> getLeaderBoardOrderByWins() {
-        return leaderBoardService.getLeaderBoardOrderByWins();
+    public List<LeaderBoard> getLeaderBoardOrderByWinners() {
+        return leaderBoardService.getLeaderBoardOrderByWinners();
     }
 
-    @RequestMapping(value = "getLeaderBoardById", method = RequestMethod.GET)
+    @GetMapping(value = "getAllLeaderBoard")
+    public List<LeaderBoard> getAllLeaderboards() {
+        return leaderBoardService.getAllLeaderBoards();
+    }
+
+    @GetMapping(value = "getLeaderBoardById")
     public LeaderBoard getLeaderBoardById(@RequestParam Integer id) {
         LeaderBoard leaderBoardById = leaderBoardService.getLeaderBoardById(id);
         return leaderBoardById;
+    }
+
+    @PostMapping(value = "addLeaderBoards")
+    public String LeaderBoards(@RequestBody LeaderBoard leaderBoard) {
+        leaderBoardService.addLeaderBoards(leaderBoard);
+        return "LeaderBoard added";
     }
 }

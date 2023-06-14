@@ -13,6 +13,6 @@ public interface LeaderBoardRepository extends JpaRepository<LeaderBoard, Intege
     @Query(value = "SELECT l FROM LeaderBoard l where l.id= :id")
     LeaderBoard getLeaderBoardById(@Param("id") Integer id);
     @Query(value = "SELECT l FROM LeaderBoard l order by l.teamWins desc")
-    List<LeaderBoard> getLeaderBoardOrderByWins();
+    List<LeaderBoard> getLeaderBoardOrderByWinners();
 
 }

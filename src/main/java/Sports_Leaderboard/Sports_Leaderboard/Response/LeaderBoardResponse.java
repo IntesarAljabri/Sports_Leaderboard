@@ -1,5 +1,6 @@
 package Sports_Leaderboard.Sports_Leaderboard.Response;
 import Sports_Leaderboard.Sports_Leaderboard.Models.LeaderBoard;
+import Sports_Leaderboard.Sports_Leaderboard.Request.LeaderBoardRequest;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -19,22 +20,23 @@ public class LeaderBoardResponse {
     Integer wins;
     Integer losses;
 
-    public static LeaderBoardResponse covertLeaderBoardToResponse(LeaderBoard requestFromLeaderBoard) {
+    public static LeaderBoardResponse convertRequestToResponse(LeaderBoard leaderBoardRequest) {
         return LeaderBoardResponse.builder()
-                .Id(requestFromLeaderBoard.getId())
-                .Name(requestFromLeaderBoard.getTeamName())
-                .wins(requestFromLeaderBoard.getTeamWins())
-                .losses(requestFromLeaderBoard.getTeamLosses())
+                .Id(leaderBoardRequest.getId())
+                .Name(leaderBoardRequest.getTeamName())
+                .wins(leaderBoardRequest.getTeamWins())
+                .losses(leaderBoardRequest.getTeamLosses())
                 .build();
     }
 
-    public static List<LeaderBoardResponse> convertRequestListToResponseList(List<LeaderBoard> LeaderBoardRequestFromUser) {
-        List<LeaderBoardResponse> LeaderBoardResponseList = new ArrayList<>();
-        if (!LeaderBoardRequestFromUser.isEmpty()) {
-            for (LeaderBoard leaderBoardRequest : LeaderBoardRequestFromUser) {
-                LeaderBoardResponseList.add(covertLeaderBoardToResponse(leaderBoardRequest));
+    public static List<LeaderBoard> convert(List<LeaderBoardResponse> requestList) {
+        List<LeaderBoard> leaderBoards = new ArrayList<>();
+        if (!requestList.isEmpty()) {
+            for (LeaderBoardResponse response : requestList) {
+                LeaderBoard leaderBoard = new LeaderBoard();
+                leaderBoards.add(leaderBoard);
             }
         }
-        return LeaderBoardResponseList;
+        return leaderBoards;
     }
 }

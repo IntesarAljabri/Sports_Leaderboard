@@ -20,19 +20,25 @@ public class LeaderBoardService {
     public void createLeaderBoard(LeaderBoardRequest leaderBoardRequest) {
         LeaderBoard leaderBoard = new LeaderBoard();
         leaderBoard.setTeamName(leaderBoardRequest.getTeamName());
-        leaderBoard.setTeamWins(leaderBoardRequest.getWins());
+        leaderBoard.setTeamWins(leaderBoardRequest.getWinners());
         leaderBoard.setTeamLosses(leaderBoardRequest.getLosses());
         leaderBoard.setCreateDate(new Date());
         leaderBoard.setIsActive(true);
         leaderBoardRepository.save(leaderBoard);
     }
-
+    public List<LeaderBoard> getAllLeaderBoards() {
+        return leaderBoardRepository.findAll();
+    }
     public LeaderBoard getLeaderBoardById(Integer id) {
         LeaderBoard leaderBoardById = leaderBoardRepository.getLeaderBoardById(id);
         return leaderBoardById;
     }
-    public List <LeaderBoard> getLeaderBoardOrderByWins(){
-        List<LeaderBoard> leaderBoardOrderByWins = leaderBoardRepository.getLeaderBoardOrderByWins();
-        return leaderBoardOrderByWins;
+    public List <LeaderBoard> getLeaderBoardOrderByWinners(){
+        List<LeaderBoard> leaderBoardOrderByWinners = leaderBoardRepository.getLeaderBoardOrderByWinners();
+        return leaderBoardOrderByWinners;
+    }
+
+    public LeaderBoard addLeaderBoards(LeaderBoard leaderBoard) {
+        return leaderBoardRepository.save(leaderBoard);
     }
 }

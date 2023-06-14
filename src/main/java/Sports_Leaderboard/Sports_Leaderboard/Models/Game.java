@@ -24,8 +24,7 @@ public class Game extends BaseEntity{
     @OneToOne
     @JoinColumn(name = "team2Id", referencedColumnName = "id")
     Team teamTwo;
-
-    Integer scoreOfTeamOne;
-    Integer scoreOfTeamTwo;
+    Integer scoreTeamOne;
+    Integer scoreTeamTwo;
 
 }

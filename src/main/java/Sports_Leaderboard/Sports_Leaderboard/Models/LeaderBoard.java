@@ -15,8 +15,6 @@ public class LeaderBoard extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
-    private String playerName;
-    private int score;
     String teamName;
     Integer teamWins;
     Integer teamLosses;
