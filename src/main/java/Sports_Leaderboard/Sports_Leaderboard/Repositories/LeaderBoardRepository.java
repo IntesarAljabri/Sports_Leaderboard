@@ -10,9 +10,9 @@ import java.util.List;
 
 @Repository
 public interface LeaderBoardRepository extends JpaRepository<LeaderBoard, Integer> {
-    @Query(value = "SELECT l FROM LeaderBoard l where l.id= :id")
+    @Query(value = "SELECT le FROM LeaderBoard la where le.id= :id")
     LeaderBoard getLeaderBoardById(@Param("id") Integer id);
-    @Query(value = "SELECT l FROM LeaderBoard l order by l.teamWins desc")
+    @Query(value = "SELECT le FROM LeaderBoard le order by le.teamWins desc")
     List<LeaderBoard> getLeaderBoardOrderByWinners();
 
 }

@@ -1,7 +1,10 @@
 package Sports_Leaderboard.Sports_Leaderboard.Controller;
 
+import Sports_Leaderboard.Sports_Leaderboard.Models.LeaderBoard;
 import Sports_Leaderboard.Sports_Leaderboard.Models.Team;
 import Sports_Leaderboard.Sports_Leaderboard.Repositories.TeamRepository;
+import Sports_Leaderboard.Sports_Leaderboard.Service.TeamService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,25 +12,20 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api")
 public class TeamController {
-    private TeamRepository teamRepository;
+  @Autowired
+    TeamService teamService;
 
-    public void RegistrationController(TeamRepository teamRepository) {
-        this.teamRepository = teamRepository;
+    @GetMapping(value = "getTeamById")
+    public Team getTeamById(@RequestParam Integer id) {
+        Team teamById = teamService.getTeamById(id);
+        return teamById;
+    }
+    @RequestMapping(value = "RegisterNewTeam", method = RequestMethod.POST)    //Register Player
+    public void registerNewTeam() {
+        teamService.createTeam();
     }
 
-    @PostMapping("/teams")
-    public ResponseEntity<Team> registerTeam(@RequestBody Team team) {
-        Team savedTeam = teamRepository.save(team);
-        return new ResponseEntity<>(savedTeam, HttpStatus.CREATED);
-    }
+
 
 }
-//    @Autowired
-//    TeamService teamService;
-//
-//    @RequestMapping(value = "getAll", method = RequestMethod.GET)
-//    public List<Team> getAllTeam() {
-//        return teamService.getAllTeam();
-//
-//    }
 

@@ -14,10 +14,6 @@ public interface GameRepository extends JpaRepository<Game, Integer> {
     void deleteAllGame();
     @Query("SELECT g FROM Game g where g.isActive = 1")
     List<Game> getAllActiveGames();
-
-    @Query("SELECT g FROM Game g where g.isActive = 0")
-    List<Game> getAllInActiveGames();
-
     @Query("SELECT ga FROM Game ga Where ga = Id ")
     List<Game> getGameById(Long gameId);
 

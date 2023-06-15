@@ -32,14 +32,6 @@ public class GameService {
         return gameById;
     }
 
-    public List<Game> getAllActiveGames() {
-        return gameRepository.getAllActiveGames();
-    }
-
-    public List<Game> getAllInActiveGames() {
-        return gameRepository.getAllInActiveGames();
-    }
-
     public void deleteAllGames() {
         gameRepository.deleteAllGame();
     }
@@ -53,5 +45,9 @@ public class GameService {
         game.setUpdateDate(new Date());
         gameRepository.save(game);
         return game;
+    }
+
+    public List<Game> getAllActiveGames() {
+        return gameRepository.getAllActiveGames();
     }
 }

@@ -30,7 +30,7 @@ public class TeamResponse {
                 .build();
     }
 
-    public static List<TeamResponse> convertListToGameRequest(List<Team> teamRequest) {
+    public static List<TeamResponse> convertListToTeamRequest(List<Team> teamRequest) {
         List<TeamResponse> TeamResponseList = new ArrayList<>();
         if (!TeamResponseList.isEmpty()) {
             for (Team TeamRequest : teamRequest) {
